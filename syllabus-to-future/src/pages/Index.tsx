@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
 import podcastImg from '@/assets/podcast.png';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import { useRef } from 'react';
 
 const Index = () => {
@@ -17,7 +17,7 @@ const Index = () => {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -28,26 +28,26 @@ const Index = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
-        ease: 'easeOut'
+        ease: [0.23, 1, 0.32, 1]
       }
     }
   };
 
-  const scaleVariants = {
+  const scaleVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: 'easeOut'
+        ease: [0.23, 1, 0.32, 1]
       }
     }
   };
@@ -86,12 +86,17 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
-            className="max-w-2xl md:max-w-3xl mx-auto mb-10"
+            className="mx-auto mb-10"
+            style={{ maxWidth: '1158px' }}
           >
             <motion.img
               src={podcastImg}
               alt="MUSTARD Podcast Interview"
-              className="w-full h-96 md:h-[500px] object-cover rounded-3xl shadow-3xl border-4 border-white"
+              className="w-full object-cover shadow-3xl border-4 border-white"
+              style={{ 
+                height: '558px',
+                borderRadius: '20px'
+              }}
               whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] }
@@ -258,53 +263,51 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <motion.h2
             variants={itemVariants}
-            className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6"
+            className="text-3xl md:text-4xl font-semibold text-black mb-12"
           >
             Let us show you an example
           </motion.h2>
           <motion.div
             variants={scaleVariants}
-            className="bg-[#e6ded1] rounded-3xl px-8 md:px-14 py-10 md:py-14 shadow-xl hover:shadow-2xl transition-shadow duration-500"
+            className="bg-[#e6ded1] px-12 md:px-16 py-12 md:py-8 shadow-lg hover:shadow-xl transition-shadow duration-500"
+            style={{ borderRadius: '24px' }}
           >
-            <div className="flex items-start justify-between mb-10">
-              <div className="inline-block bg-white text-gray-900 text-sm md:text-base font-medium px-6 py-3 rounded-full shadow-sm">
+            <div className="flex items-start justify-between mb-10 ">
+              <div className="inline-block bg-white text-gray-900 text-base font-medium px-8 py-3 rounded-md shadow-sm">
                 The School Lesson
               </div>
-              <div className="hidden md:block text-5xl font-semibold text-white/40 pr-2">
-                01
-              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-10 items-center">
-              <h3 className="text-3xl md:text-4xl font-semibold leading-snug text-gray-900">
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-16 items-start py-20">
+              <h3 className="text-4xl md:text-5xl font-normal leading-tight text-black">
                 Differentiation is used to find
                 <br />
                 the minimum and
                 <br />
                 maximum of a curve
               </h3>
-              <div className="flex justify-center md:justify-end items-center">
-                <div className="flex flex-col items-center gap-3">
+              <div className="flex justify-center md:justify-end items-start pt-4">
+                <div className="flex flex-col items-end gap-2">
                   <svg
-                    viewBox="0 0 160 120"
-                    className="w-32 h-24 text-black"
+                    viewBox="0 0 220 160"
+                    className="w-48 h-36 md:w-56 md:h-40"
                   >
                     <path
-                      d="M10 110 C 55 20, 105 20, 150 110"
+                      d="M20 140 Q 110 30, 200 140"
                       fill="none"
                       stroke="black"
                       strokeWidth="1.5"
                     />
                     <line
-                      x1="10"
-                      y1="108"
-                      x2="150"
-                      y2="108"
+                      x1="20"
+                      y1="140"
+                      x2="200"
+                      y2="140"
                       stroke="black"
-                      strokeWidth="1"
+                      strokeWidth="1.5"
                     />
                   </svg>
-                  <span className="text-xs md:text-sm text-gray-800">
-                    dy/dx = 0
+                  <span className="text-sm md:text-base text-black italic font-light -mt-2">
+                    dy/dx=0
                   </span>
                 </div>
               </div>

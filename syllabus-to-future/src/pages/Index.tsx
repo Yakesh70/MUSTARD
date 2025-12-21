@@ -415,11 +415,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fbf1e5]">
+    <div className="min-h-screen bg-[#FAF4EC]">
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative text-center py-16 px-5 bg-[#fbf1e5] overflow-hidden"
+        className="relative text-center py-16 px-5 bg-[#FAF4EC] overflow-hidden"
       >
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
@@ -429,18 +429,25 @@ const Index = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-            className="text-4xl md:text-6xl font-normal mb-8 text-black leading-tight"
+            className="text-black mt-16"
+            style={{
+              fontWeight: 400,
+              fontSize: "110px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+              textAlign: "center",
+            }}
           >
             Don&apos;t Just Learn it.
             <br />
-            <motion.strong
+            <motion.h1
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-              className="text-[#7b68ee] inline-block"
+              className="text-black inline-block"
             >
               Build it.
-            </motion.strong>
+            </motion.h1>
           </motion.h1>
 
           {/* Podcast Interview Image with Float Animation */}
@@ -471,45 +478,32 @@ const Index = () => {
       {/* Scroll-Linked Scaling Video Section */}
       <section
         ref={scrollScaleRef}
-        className="relative bg-[#fbf1e5]"
+        className="relative bg-[#FAF4EC] pb-24"
         style={{ height: "250vh" }}
       >
-        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div className="sticky top-0 h-xl flex items-center justify-center overflow-hidden">
           <motion.div
             style={{
               scale,
               borderRadius,
             }}
-            className="relative w-full max-w-7xl mx-4 aspect-video bg-gray-300 shadow-2xl overflow-hidden"
+            className="relative w-full max-w-7xl mx-4 aspect-video bg-gray-300 overflow-hidden"
           >
             {/* Video/Content Container */}
             <div className="w-full h-full flex items-center justify-center">
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                {/* Replace with your video source */}
-                <source src="/video.mp4" type="video/mp4" />
-              </video>
-
-              {/* Placeholder if no video */}
-              {/* <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#7b68ee] to-[#6a5acd]">
-                <div className="text-center text-white">
-                  <h3 className="text-5xl md:text-7xl font-bold mb-4">
-                    Your Video Here
-                  </h3>
-                  <p className="text-xl md:text-2xl opacity-90">
-                    Scales as you scroll
-                  </p>
-                </div>
-              </div> */}
+              <iframe
+                className="w-full h-full rounded-md"
+                src="https://www.youtube.com/embed/XaXjY4rhku0?si=PkyJ225B181sa6CG&autoplay=1&mute=1&loop=1&playlist=XaXjY4rhku0"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
             </div>
 
             {/* Text Overlay - Fades in at full scale */}
-            <motion.div
+            {/* <motion.div
               style={{ opacity: overlayOpacity }}
               className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none"
             >
@@ -521,7 +515,7 @@ const Index = () => {
                   Transforming Education Through Technology
                 </p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </section>
@@ -533,7 +527,7 @@ const Index = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="py-24 px-5 bg-[#fbf1e5]"
+        className="py-24 px-5 bg-[#FAF4EC] h-screen align-middle items-center "
         onViewportEnter={() => setHasAnimated(true)}
       >
         <div className="max-w-5xl mx-auto ">
@@ -544,8 +538,12 @@ const Index = () => {
               rotate: tagScrollRotate,
               scale: tagScrollScale,
               opacity: tagScrollOpacity,
+              fontWeight: 400,
+              fontSize: "48px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
             }}
-            className="inline-block bg-[#7b68ee] text-white px-8 py-3 rounded-md text-base md:text-xl font-normal mb-8 shadow-lg"
+            className="inline-block bg-[#7b68ee] text-black px-8 py-3 rounded-2xl text-base md:text-xl font-normal mb-8 shadow-lg text-center mx-auto"
           >
             Students learn in silos
           </motion.div>
@@ -554,7 +552,13 @@ const Index = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             transition={{ staggerChildren: 0.015, delayChildren: 0.3 }}
-            className="text-4xl md:text-5xl font-normal leading-tight text-center mx-auto"
+            className="text-center mx-auto px-3 "
+            style={{
+              fontWeight: 400,
+              fontSize: "72px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+            }}
           >
             {`They memorize the 'what',`.split("").map((char, index) => (
               <motion.span
@@ -591,10 +595,9 @@ const Index = () => {
         </div>
       </motion.section>
 
-      {/* Dark Section with Cards */}
+      {/* Dark Section with Text */}
       <section
-        ref={darkSectionRef}
-        className="py-24 px-5 relative overflow-hidden"
+        className="pt-24 px-5 relative overflow-hidden h-screen"
         style={{ backgroundColor: "#1c1c1c" }}
       >
         <motion.div
@@ -602,14 +605,20 @@ const Index = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="max-w-6xl mx-auto relative z-10"
+          className="max-w-6xl mx-auto relative z-10 align-middle h-full flex items-center"
         >
           <motion.h2
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             transition={{ staggerChildren: 0.015, delayChildren: 0.1 }}
-            className="text-2xl md:text-4xl font-normal text-white mb-10 text-right leading-relaxed max-w-2xl md:max-w-3xl ml-auto pl-40"
+            className="text-2xl md:text-5xl font-normal text-white text-right leading-relaxed max-w-2xl md:max-w-3xl ml-auto"
+            style={{
+              fontWeight: 400,
+              fontSize: "56px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+            }}
           >
             {`We transform students from passive consumers of technology into active creators by connecting the subjects they learn today with the innovations of tomorrow.`
               .split("")
@@ -623,145 +632,247 @@ const Index = () => {
                 </motion.span>
               ))}
           </motion.h2>
-
-          <motion.div
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
-          >
-            {/* Green Card */}
-            <motion.div
-              style={{
-                y: cardsScrollY,
-                rotate: cardsScrollRotate,
-                scale: cardsScrollScale,
-                opacity: cardsScrollOpacity,
-              }}
-            >
-              <Card
-                className="p-0 h-auto md:h-[420px] transition-all duration-500 ease-smooth hover:shadow-2xl rounded-[28px] overflow-hidden"
-                style={{ backgroundColor: "#37e2b4" }}
-              >
-                <motion.div
-                  className="text-white h-full flex flex-col px-10 pt-10 pb-8"
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <h3 className="text-3xl md:text-4xl font-normal leading-tight mb-10">
-                    Evolution, Not
-                    <br />
-                    Addition
-                  </h3>
-                  <div className="mt-auto">
-                    <div
-                      className="bg-[#fff7eb] text-black text-sm md:text-base leading-relaxed px-6 py-6 rounded-[24px]"
-                      style={{ transform: "skewY(-3deg)" }}
-                    >
-                      <p
-                        className="opacity-90"
-                        style={{ transform: "skewY(3deg)" }}
-                      >
-                        We don&apos;t force a foreign curriculum on students. We
-                        show how existing lessons evolve into advanced tech.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </Card>
-            </motion.div>
-
-            {/* Purple Card - Context-First Learning */}
-            <motion.div
-              style={{
-                y: cardsScrollY,
-                rotate: cardsScrollRotate,
-                scale: cardsScrollScale,
-                opacity: cardsScrollOpacity,
-              }}
-            >
-              <Card
-                className="p-0 h-auto md:h-[420px] transition-all duration-500 ease-smooth hover:shadow-2xl rounded-[28px] overflow-hidden"
-                style={{ backgroundColor: "#706cff" }}
-              >
-                <motion.div
-                  className="text-white h-full flex flex-col px-10 pt-10 pb-8"
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <h3 className="text-3xl md:text-4xl font-normal leading-tight mb-10">
-                    Context-First
-                    <br />
-                    Learning
-                  </h3>
-                  <div className="mt-auto">
-                    <div
-                      className="bg-[#fff7eb] text-black text-sm md:text-base leading-relaxed px-6 py-6 rounded-[24px]"
-                      style={{ transform: "skewY(-3deg)" }}
-                    >
-                      <p
-                        className="opacity-90"
-                        style={{ transform: "skewY(3deg)" }}
-                      >
-                        We don&apos;t teach &quot;Robotics&quot;; we teach how
-                        physics and code merge to create motion.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </Card>
-            </motion.div>
-
-            {/* Yellow Card - Creator Mindset */}
-            <motion.div
-              style={{
-                y: cardsScrollY,
-                rotate: cardsScrollRotate,
-                scale: cardsScrollScale,
-                opacity: cardsScrollOpacity,
-              }}
-            >
-              <Card
-                className="p-0 h-auto md:h-[420px] transition-all duration-500 ease-smooth hover:shadow-2xl rounded-[28px] overflow-hidden"
-                style={{ backgroundColor: "#ffbf1f", color: "#1c1c1c" }}
-              >
-                <motion.div
-                  className="h-full flex flex-col px-10 pt-10 pb-8"
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  <h3 className="text-3xl md:text-4xl font-normal leading-tight mb-10">
-                    Creator
-                    <br />
-                    Mindset
-                  </h3>
-                  <div className="mt-auto">
-                    <div
-                      className="bg-[#fff7eb] text-black text-sm md:text-base leading-relaxed px-6 py-6 rounded-[24px]"
-                      style={{ transform: "skewY(-3deg)" }}
-                    >
-                      <p
-                        className="opacity-90"
-                        style={{ transform: "skewY(3deg)" }}
-                      >
-                        We shift the focus from &quot;How do I use this
-                        device?&quot; to &quot;How do I build this device?&quot;
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </Card>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </section>
 
+      {/* Cards Section - Scroll-Driven Stacking */}
+      <section
+        ref={darkSectionRef}
+        className="relative"
+        style={{
+          backgroundColor: "#1c1c1c",
+          paddingBottom: "200px",
+        }}
+      >
+        <div className="h-[300vh] md:h-[400vh]">
+          <div
+            className="sticky top-0 flex items-center justify-center px-5 md:px-0"
+            style={{ minHeight: "100vh" }}
+          >
+            <div className="max-w-6xl mx-auto w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                {/* Green Card - Third to enter */}
+                <motion.div
+                  style={{
+                    y: useTransform(
+                      darkSectionProgress,
+                      [0.5, 0.75, 1],
+                      [400, 160, 160]
+                    ),
+                    opacity: useTransform(
+                      darkSectionProgress,
+                      [0.5, 0.65, 0.75],
+                      [0, 1, 1]
+                    ),
+                  }}
+                  className="w-full"
+                >
+                  <Card
+                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full"
+                    style={{ backgroundColor: "#37e2b4" }}
+                  >
+                    <motion.div
+                      className="text-black h-full flex flex-col px-4 md:px-5 pt-4 md:pt-5 pb-6 md:pb-8"
+                      whileHover={{ y: -8 }}
+                      transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                    >
+                      <h3
+                        className="text-3xl md:text-4xl font-normal leading-tight mb-6 md:mb-10"
+                        style={{
+                          fontWeight: 400,
+                          fontSize: "clamp(32px, 5vw, 48px)",
+                          lineHeight: "100%",
+                          letterSpacing: "-3%",
+                        }}
+                      >
+                        Evolution, Not
+                        <br />
+                        Addition
+                      </h3>
+                      <div className="mt-auto">
+                        <div
+                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-5 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
+                          style={{
+                            clipPath:
+                              "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
+                            paddingTop: "2rem",
+                          }}
+                        >
+                          <p
+                            className="opacity-90 text-black text-sm md:text-base"
+                            style={{
+                              fontFamily: "Inter",
+                              fontWeight: 400,
+                              fontSize: "clamp(16px, 2vw, 20px)",
+                              lineHeight: "120%",
+                              letterSpacing: "-3%",
+                              textAlign: "right",
+                            }}
+                          >
+                            We don&apos;t force a foreign curriculum on
+                            students. We show how existing lessons evolve into
+                            advanced tech.
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Card>
+                </motion.div>
+
+                {/* Purple Card - Second to enter */}
+                <motion.div
+                  style={{
+                    y: useTransform(
+                      darkSectionProgress,
+                      [0.25, 0.5, 1],
+                      [400, 80, 80]
+                    ),
+                    opacity: useTransform(
+                      darkSectionProgress,
+                      [0.25, 0.4, 0.5],
+                      [0, 1, 1]
+                    ),
+                  }}
+                  className="w-full"
+                >
+                  <Card
+                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full"
+                    style={{ backgroundColor: "#7371FC" }}
+                  >
+                    <motion.div
+                      className="text-black h-full flex flex-col px-4 md:px-5 pt-4 md:pt-5 pb-6 md:pb-8"
+                      whileHover={{ y: -8 }}
+                      transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                    >
+                      <h3
+                        className="text-3xl md:text-4xl font-normal leading-tight mb-6 md:mb-10"
+                        style={{
+                          fontWeight: 400,
+                          fontSize: "clamp(32px, 5vw, 48px)",
+                          lineHeight: "100%",
+                          letterSpacing: "-3%",
+                        }}
+                      >
+                        Context-First
+                        <br />
+                        Learning
+                      </h3>
+                      <div className="mt-auto">
+                        <div
+                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-5 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
+                          style={{
+                            clipPath:
+                              "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
+                            paddingTop: "2rem",
+                          }}
+                        >
+                          <p
+                            className="opacity-90 text-sm md:text-base"
+                            style={{
+                              fontFamily: "Inter",
+                              fontWeight: 400,
+                              fontSize: "clamp(16px, 2vw, 20px)",
+                              lineHeight: "120%",
+                              letterSpacing: "-3%",
+                              textAlign: "right",
+                            }}
+                          >
+                            We don&apos;t teach &quot;Robotics&quot;; we teach
+                            how physics and code merge to create motion.
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Card>
+                </motion.div>
+
+                {/* Yellow Card - First to enter */}
+                <motion.div
+                  style={{
+                    y: useTransform(
+                      darkSectionProgress,
+                      [0, 0.25, 1],
+                      [400, 0, 0]
+                    ),
+                    opacity: useTransform(
+                      darkSectionProgress,
+                      [0, 0.15, 0.25],
+                      [0, 1, 1]
+                    ),
+                  }}
+                  className="w-full"
+                >
+                  <Card
+                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full"
+                    style={{ backgroundColor: "#ffbf1f", color: "#1c1c1c" }}
+                  >
+                    <motion.div
+                      className="text-black h-full flex flex-col px-4 md:px-5 pt-4 md:pt-5 pb-6 md:pb-8"
+                      whileHover={{ y: -8 }}
+                      transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                    >
+                      <h3
+                        className="text-3xl md:text-4xl font-normal leading-tight mb-6 md:mb-10"
+                        style={{
+                          fontWeight: 400,
+                          fontSize: "clamp(32px, 5vw, 48px)",
+                          lineHeight: "100%",
+                          letterSpacing: "-3%",
+                        }}
+                      >
+                        Creator
+                        <br />
+                        Mindset
+                      </h3>
+                      <div className="mt-auto">
+                        <div
+                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-5 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
+                          style={{
+                            clipPath:
+                              "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
+                            paddingTop: "2rem",
+                          }}
+                        >
+                          <p
+                            className="opacity-90 text-sm md:text-base"
+                            style={{
+                              fontFamily: "Inter",
+                              fontWeight: 400,
+                              fontSize: "clamp(16px, 2vw, 20px)",
+                              lineHeight: "120%",
+                              letterSpacing: "-3%",
+                              textAlign: "right",
+                            }}
+                          >
+                            We shift the focus from &quot;How do I use this
+                            device?&quot; to &quot;How do I build this
+                            device?&quot;
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Card>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Example Section Header */}
-      <section className="py-5 px-5 bg-[#fbf1e5]">
+      <section className="py-5 px-5 bg-[#FAF4EC]">
         <motion.h2
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={itemVariants}
-          className="text-3xl md:text-4xl font-semibold text-black px-12 md:px-10 pt-14"
+          className="text-3xl md:text-4xl font-semibold text-black pl-20 pb-10 md:px-10 pt-40"
+          style={{
+            fontWeight: 400,
+            fontSize: "56px",
+            lineHeight: "100%",
+            letterSpacing: "-3%",
+          }}
         >
           Let us show you an example
         </motion.h2>
@@ -778,17 +889,34 @@ const Index = () => {
           className="sticky top-0 py-5 px-5 bg-transparent h-screen flex items-center"
           style={{ zIndex: 1 }}
         >
-          <div className="max-w-6xl mx-auto w-full">
+          <div className="max-w-screen mx-auto w-full">
             <motion.div
               variants={slideUpVariants}
-              className="bg-[#e6ded1] px-12 md:px-16 py-16 md:py-8 relative shadow-lg hover:shadow-xl transition-shadow duration-500"
+              className="bg-[#e6ded1] px-12 md:px-16 py-16 md:py-8 relative duration-500 h-screen max-w-full"
               style={{ borderRadius: "24px" }}
             >
-              <div className="inline-block bg-white text-black text-base font-semibold px-8 py-3 rounded-md shadow-sm mb-12">
+              <div
+                className=" bg-white text-black px-8 py-3 rounded-md  mb-12 inline-block items-center justify-cente"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  fontSize: "32px",
+                  lineHeight: "121%",
+                  letterSpacing: "-3%",
+                }}
+              >
                 The School Lesson
               </div>
               <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-16 items-start py-20">
-                <h3 className="text-4xl md:text-5xl font-normal leading-tight text-black">
+                <h3
+                  className="text-4xl md:text-5xl font-normal leading-tight text-black"
+                  style={{
+                    fontWeight: 500,
+                    fontSize: "72px",
+                    lineHeight: "121%",
+                    letterSpacing: "-3%",
+                  }}
+                >
                   Differentiation is used to find
                   <br />
                   the minimum and
@@ -837,25 +965,49 @@ const Index = () => {
           className="sticky top-0 py-5 px-5 bg-transparent h-screen flex items-center"
           style={{ zIndex: 2 }}
         >
-          <div className="max-w-6xl mx-auto w-full">
+          <div className="max-w-screen mx-auto w-full">
             <motion.div
               variants={slideUpVariants}
-              className="bg-[#ffc700] px-12 md:px-16 py-16 md:py-8 relative shadow-lg hover:shadow-xl transition-shadow duration-500"
+              className="bg-[#ffc700] px-12 md:px-16 py-16 md:py-8 relative  duration-500 h-screen max-w-full"
               style={{ borderRadius: "24px" }}
             >
-              <div className="inline-block bg-white text-black text-base font-semibold px-8 py-3 rounded-md shadow-sm mb-12">
+              <div
+                className=" bg-white text-black px-8 py-3 rounded-md  mb-12 inline-block items-center justify-center"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  fontSize: "32px",
+                  lineHeight: "121%",
+                  letterSpacing: "-3%",
+                }}
+              >
                 MUSTARD Upgrade
               </div>
-              <div className="absolute top-8 right-8 md:top-40 md:right-56">
+              <div className="absolute top-8 right-8 md:top-36 md:right-36">
                 <div
-                  className="bg-[#6b63ff] text-white text-base md:text-lg font-medium px-8 py-4 shadow-lg transform rotate-6"
-                  style={{ borderRadius: "16px" }}
+                  className="bg-[#7371FC] text-black px-8 py-6  transform rotate-6"
+                  style={{
+                    borderRadius: "16px",
+                    fontWeight: 400,
+                    fontSize: "36px",
+                    lineHeight: "100%",
+                    letterSpacing: "-3%",
+                    textAlign: "center",
+                  }}
                 >
                   This is how neural networks learn!
                 </div>
               </div>
-              <div className="relative pb-14">
-                <h3 className="text-4xl md:text-5xl font-normal text-black leading-tight max-w-2xl py-20">
+              <div className=" py-20">
+                <h3
+                  className="text-4xl md:text-5xl font-normal leading-tight text-black"
+                  style={{
+                    fontWeight: 500,
+                    fontSize: "72px",
+                    lineHeight: "121%",
+                    letterSpacing: "-3%",
+                  }}
+                >
                   AI detects which way error
                   <br />
                   goes down and moves in
@@ -879,17 +1031,34 @@ const Index = () => {
           className="sticky top-0 py-5 px-5 bg-transparent h-screen flex items-center"
           style={{ zIndex: 3 }}
         >
-          <div className="max-w-6xl mx-auto w-full">
+          <div className="max-w-screen mx-auto w-full">
             <motion.div
               variants={slideUpVariants}
-              className="bg-[#2bdba0] px-12 md:px-16 py-16 md:py-8 relative shadow-lg hover:shadow-xl transition-shadow duration-500"
+              className="bg-[#2bdba0] px-12 md:px-16 py-16 md:py-8 relative duration-500 h-screen max-w-full"
               style={{ borderRadius: "24px" }}
             >
-              <div className="inline-block bg-white text-black text-base font-semibold px-8 py-3 rounded-md shadow-sm mb-12">
+              <div
+                className="inline-block bg-white text-black px-8 py-3 rounded-md shadow-sm mb-12 items-center justify-center"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  fontSize: "32px",
+                  lineHeight: "121%",
+                  letterSpacing: "-3%",
+                }}
+              >
                 The Build
               </div>
-              <div className="relative pb-14">
-                <h3 className="text-4xl md:text-5xl font-normal text-black leading-tight max-w-2xl py-20">
+              <div className="py-20">
+                <h3
+                  className="text-4xl md:text-5xl font-normal leading-tight text-black"
+                  style={{
+                    fontWeight: 500,
+                    fontSize: "72px",
+                    lineHeight: "121%",
+                    letterSpacing: "-3%",
+                  }}
+                >
                   A self-driving bot that uses
                   <br />
                   calculus to mathematically
@@ -912,31 +1081,30 @@ const Index = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="py-24 px-5 bg-[#fbf1e5]"
+        className="py-24 px-5 bg-[#FAF4EC]"
         onViewportEnter={() => setCardsAnimated(true)}
       >
-        <div className="max-w-6xl mx-auto text-center px-32">
+        <div className="max-w-6xl mx-auto text-center px-5 pt-14">
           <motion.h2
             variants={itemVariants}
             className="text-3xl md:text-5xl font-semibold mb-14 text-black pd-14"
+            style={{
+              fontWeight: 400,
+              fontSize: "64px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+            }}
           >
             Mentored by Masters
           </motion.h2>
 
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 pt-20"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center"
           >
             {/* PhD Scholars card */}
-            <motion.div
-              style={{
-                y: mentorScrollY,
-                rotate: mentorScrollRotate,
-                scale: mentorScrollScale,
-                opacity: mentorScrollOpacity,
-              }}
-            >
-              <Card className="bg-black text-white rounded-md overflow-hidden shadow-3xl transition-all duration-500 hover:shadow-3xl hover:-translate-y-1">
+            <motion.div>
+              <Card className="bg-black text-white rounded-[10px] overflow-hidden hover:-translate-y-1 w-full md:w-[481px] h-[466px] mx-auto">
                 <div className="px-10 pt-10 pb-8 flex flex-col h-full">
                   <h3 className="text-4xl md:text-5xl font-normal text-left mb-10 leading-tight">
                     PhD
@@ -945,12 +1113,22 @@ const Index = () => {
                   </h3>
                   <div className="mt-auto">
                     <div
-                      className="bg-[#6b63ff] text-black text-sm md:text-base leading-relaxed px-6 py-6 rounded-[24px]"
-                      style={{ transform: "skewY(-4deg)" }}
+                      className="bg-[#7371FC] rounded-xl px-5 py-5  h-[215.8297576904297px] flex flex-col items-end justify-end"
+                      style={{
+                        clipPath: "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
+                        paddingTop: "3rem",
+                      }}
                     >
                       <p
-                        className="text-black opacity-90"
-                        style={{ transform: "skewY(4deg)" }}
+                        className="opacity-90 text-black"
+                        style={{
+                          fontFamily: "Inter",
+                          fontWeight: 400,
+                          fontSize: "20px",
+                          lineHeight: "100%",
+                          letterSpacing: "-7%",
+                          textAlign: "right",
+                        }}
                       >
                         Academic rigour delivered by
                         <br />
@@ -965,15 +1143,8 @@ const Index = () => {
             </motion.div>
 
             {/* Industry Leaders card */}
-            <motion.div
-              style={{
-                y: mentorScrollY,
-                rotate: mentorScrollRotate,
-                scale: mentorScrollScale,
-                opacity: mentorScrollOpacity,
-              }}
-            >
-              <Card className="bg-black text-white rounded-md overflow-hidden shadow-3xl transition-all duration-500 hover:shadow-3xl hover:-translate-y-1">
+            <motion.div>
+              <Card className="bg-black text-white rounded-[10px] overflow-hidden hover:-translate-y-1 w-full md:w-[481px] h-[466px] mx-auto">
                 <div className="px-10 pt-10 pb-8 flex flex-col h-full">
                   <h3 className="text-4xl md:text-5xl font-normal text-left mb-10 leading-tight">
                     Industry
@@ -982,12 +1153,22 @@ const Index = () => {
                   </h3>
                   <div className="mt-auto">
                     <div
-                      className="bg-[#2bdba0] text-black text-sm md:text-base leading-relaxed px-6 py-6 rounded-[24px] text-align-left"
-                      style={{ transform: "skewY(-4deg)" }}
+                      className="bg-[#43DDA4] rounded-xl px-5 py-5  h-[215.8297576904297px] flex flex-col items-end justify-end"
+                      style={{
+                        clipPath: "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
+                        paddingTop: "3rem",
+                      }}
                     >
                       <p
-                        className="text-black opacity-90 text-align-left"
-                        style={{ transform: "skewY(4deg)" }}
+                        className="opacity-90 text-black"
+                        style={{
+                          fontFamily: "Inter",
+                          fontWeight: 400,
+                          fontSize: "20px",
+                          lineHeight: "100%",
+                          letterSpacing: "-7%",
+                          textAlign: "right",
+                        }}
                       >
                         Practical insights from
                         <br />
@@ -1004,29 +1185,49 @@ const Index = () => {
         </div>
       </motion.section>
 
+      {/* Divider */}
+      <div className="bg-[#FAF4EC]">
+        <div className="max-w-6xl mx-auto px-5">
+          <hr className="border-t border-gray-500" />
+        </div>
+      </div>
+
       {/* CTA Section */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="py-28 px-5 bg-gradient-to-br from-[#f5f5f5] to-white text-center relative overflow-hidden"
+        className="py-24 px-5 bg-[#FAF4EC] text-center relative h-screen"
       >
-        <div className="max-w-3xl mx-auto relative z-10">
+        <div className="max-w-auto mx-auto relative z-10">
           <motion.h2
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-normal mb-8 leading-tight"
+            className=" font-normal mb-8 leading-tight"
+            style={{
+              fontWeight: 400,
+              fontSize: "64px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+            }}
           >
             Your Students Are Ready to
             <br />
-            <strong className="text-[#7b68ee]">Build</strong>
+            Build
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-gray-700 leading-relaxed"
+            className="text-xl md:text-2xl mb-12 max-w-auto mx-auto text-gray-700 leading-relaxed"
+            style={{
+              fontWeight: 400,
+              fontSize: "32px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+            }}
           >
-            Stop teaching them to just use technology. Partner with MUSTARD and
-            teach them to master it.
+            Stop teaching them to just use technology. Partner with
+            <br />
+            MUSTARD and teach them to master it.
           </motion.p>
           <motion.div variants={scaleVariants}>
             <motion.div
@@ -1035,7 +1236,14 @@ const Index = () => {
               transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
             >
               <Button
-                className="bg-[#7b68ee] hover:bg-[#6a5acd] text-white px-12 py-6 text-xl font-normal rounded-md shadow-2xl hover:shadow-3xl transition-all duration-300"
+                className="bg-[#7371FC] text-white px-12 py-6 text-xl font-normal rounded-md w-[339px] h-[76px]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  fontSize: "32px",
+                  lineHeight: "121%",
+                  letterSpacing: "-3%",
+                }}
                 onClick={() => navigate("/contact")}
               >
                 Book a Demo

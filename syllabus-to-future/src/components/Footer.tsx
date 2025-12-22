@@ -7,7 +7,7 @@ const Footer = () => {
 
 
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 py-1 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section (no extra MUSTARD heading – only description) */}
           <div className="space-y-4">
@@ -68,14 +68,7 @@ const Footer = () => {
           </div>
         </div>
 
-              {/* Centered MUSTARD band */}
-      <div className="bg-slate-950 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-9xl md:text-5xl font-normal text-center" style={{ color: '#ffc700' }}>
-            MUSTARD
-          </h2>
-        </div>
-      </div>
+
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-6">
@@ -89,6 +82,24 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+      {/* Centered MUSTARD band */}
+      <div className="bg-slate-950 pt-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-9xl md:text-5xl font-normal text-center" 
+          style={{
+              fontWeight: 400,
+              fontSize: "128px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+              color: "#FFC00D",
+              transform: "translateY(32px)",
+            }}>
+            MUSTARD
+          </h2>
+        </div>
+      </div>
+
       </div>
     </footer>
   );

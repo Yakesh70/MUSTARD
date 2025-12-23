@@ -29,7 +29,7 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Navigation - Centered */}
-            <div className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full shadow-sm px-8 py-3">
+            <div className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-[10px] shadow-sm px-8 py-3">
               {navItems.map((item) => (
                 <Link
                   key={item.name}

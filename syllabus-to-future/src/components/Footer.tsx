@@ -93,7 +93,7 @@ const Footer = () => {
               lineHeight: "100%",
               letterSpacing: "-3%",
               color: "#FFC00D",
-              transform: "translateY(32px)",
+              transform: "translateY(14px)",
             }}>
             MUSTARD
           </h2>

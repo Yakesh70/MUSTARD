@@ -416,72 +416,55 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-[#FAF4EC]">
-      {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="relative text-center py-16 px-5 bg-[#FAF4EC] overflow-hidden"
-      >
-        <motion.div
-          style={{ y: heroY, opacity: heroOpacity }}
-          className="relative z-10"
+      {/* Hero Section Wrapper */}
+      <div className="relative" style={{ height: "200vh" }}>
+        {/* Hero Heading Section */}
+        <section
+          ref={heroRef}
+          className="sticky top-0 text-center pt-28 px-5 bg-[#FAF4EC] overflow-hidden h-auto flex items-center justify-center"
+          style={{ zIndex: 1 }}
         >
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-            className="text-black mt-16"
-            style={{
-              fontWeight: 400,
-              fontSize: "110px",
-              lineHeight: "100%",
-              letterSpacing: "-3%",
-              textAlign: "center",
-            }}
-          >
-            Don&apos;t Just Learn it.
-            <br />
+          <motion.div className="relative z-10">
             <motion.h1
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-              className="text-black inline-block"
-            >
-              Build it.
-            </motion.h1>
-          </motion.h1>
-
-          {/* Podcast Interview Image with Float Animation */}
-          {/* <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
-            className="mx-auto mb-10"
-            style={{ maxWidth: "1158px" }}
-          >
-            <motion.img
-              src={podcastImg}
-              alt="MUSTARD Podcast Interview"
-              className="w-full object-cover shadow-3xl border-4 border-white"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+              className="text-black"
               style={{
-                height: "558px",
-                borderRadius: "20px",
+                fontWeight: 400,
+                fontSize: "110px",
+                lineHeight: "100%",
+                letterSpacing: "-0.03em",
+                textAlign: "center",
+                opacity: heroOpacity,
               }}
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.6, ease: [0.23, 1, 0.32, 1] },
-              }}
-            />
-          </motion.div> */}
-        </motion.div>
-      </section>
+            >
+              Don&apos;t Just Learn it.
+              <br />
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.3,
+                  ease: [0.23, 1, 0.32, 1],
+                }}
+                className="text-black inline-block"
+              >
+                Build it.
+              </motion.h1>
+            </motion.h1>
+          </motion.div>
+        </section>
+      </div>
 
       {/* Scroll-Linked Scaling Video Section */}
       <section
         ref={scrollScaleRef}
-        className="relative bg-[#FAF4EC] pb-24"
-        style={{ height: "250vh" }}
+        className="relative bg-transparent pb-24"
+        style={{ height: "250vh", marginTop: "-100vh", zIndex: 10 }}
       >
-        <div className="sticky top-0 h-xl flex items-center justify-center overflow-hidden">
+        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
           <motion.div
             style={{
               scale,
@@ -520,80 +503,85 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Quote Section */}
-      <motion.section
-        ref={quoteRef}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-        className="py-24 px-5 bg-[#FAF4EC] h-screen align-middle items-center "
-        onViewportEnter={() => setHasAnimated(true)}
-      >
-        <div className="max-w-5xl mx-auto ">
-          {/* Slanted label with physics */}
-          <motion.div
-            style={{
-              y: tagScrollY,
-              rotate: tagScrollRotate,
-              scale: tagScrollScale,
-              opacity: tagScrollOpacity,
-              fontWeight: 400,
-              fontSize: "48px",
-              lineHeight: "100%",
-              letterSpacing: "-3%",
-            }}
-            className="inline-block bg-[#7b68ee] text-black px-8 py-3 rounded-2xl text-base md:text-xl font-normal mb-8 shadow-lg text-center mx-auto"
-          >
-            Students learn in silos
-          </motion.div>
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ staggerChildren: 0.015, delayChildren: 0.3 }}
-            className="text-center mx-auto px-3 "
-            style={{
-              fontWeight: 400,
-              fontSize: "72px",
-              lineHeight: "100%",
-              letterSpacing: "-3%",
-            }}
-          >
-            {`They memorize the 'what',`.split("").map((char, index) => (
-              <motion.span
-                key={`line1-${index}`}
-                variants={charVariants}
-                className="inline-block"
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-            <br />
-            {`but miss the 'why'`.split("").map((char, index) => (
-              <motion.span
-                key={`line2-${index}`}
-                variants={charVariants}
-                className="inline-block"
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-            <br />
-            {`Why do they learn what they learn?`
-              .split("")
-              .map((char, index) => (
+      {/* Quote Section Wrapper */}
+      <div className="relative" style={{ height: "200vh" }}>
+        {/* Quote Section */}
+        <motion.section
+          ref={quoteRef}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+          className="sticky top-0 py-24 px-5 bg-[#FAF4EC] h-screen align-middle items-center"
+          style={{ zIndex: 5 }}
+          onViewportEnter={() => setHasAnimated(true)}
+        >
+          <div className="max-w-auto mx-auto">
+            {/* Slanted label with physics */}
+            <motion.div
+              style={{
+                y: tagScrollY,
+                rotate: tagScrollRotate,
+                scale: tagScrollScale,
+                opacity: tagScrollOpacity,
+                fontWeight: 400,
+                fontSize: "48px",
+                lineHeight: "100%",
+                letterSpacing: "-3%",
+              }}
+              className="inline-block bg-[#7b68ee] text-black px-8 py-3 rounded-2xl text-base md:text-xl font-normal mb-8 shadow-lg text-center mx-auto"
+            >
+              Students learn in silos!
+            </motion.div>
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ staggerChildren: 0.015, delayChildren: 0.3 }}
+              className="text-center mx-auto px-3 "
+              style={{
+                fontFamily: "Inter",
+                fontWeight: 400,
+                fontSize: "72px",
+                lineHeight: "100%",
+                letterSpacing: "-0.03em",
+              }}
+            >
+              {`They memorize the 'what',`.split("").map((char, index) => (
                 <motion.span
-                  key={`line3-${index}`}
+                  key={`line1-${index}`}
                   variants={charVariants}
                   className="inline-block"
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
-          </motion.h2>
-        </div>
-      </motion.section>
+              <br />
+              {`but miss the 'why'`.split("").map((char, index) => (
+                <motion.span
+                  key={`line2-${index}`}
+                  variants={charVariants}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+              <br />
+              {`Why do they learn what they learn?`
+                .split("")
+                .map((char, index) => (
+                  <motion.span
+                    key={`line3-${index}`}
+                    variants={charVariants}
+                    className="inline-block"
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+            </motion.h2>
+          </div>
+        </motion.section>
+      </div>
 
       {/* Dark Section with Text */}
       <section
@@ -607,31 +595,81 @@ const Index = () => {
           variants={containerVariants}
           className="max-w-6xl mx-auto relative z-10 align-middle h-full flex items-center"
         >
-          <motion.h2
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             transition={{ staggerChildren: 0.015, delayChildren: 0.1 }}
-            className="text-2xl md:text-5xl font-normal text-white text-right leading-relaxed max-w-2xl md:max-w-3xl ml-auto"
+            className="text-2xl md:text-auto font-normal text-white text-right ml-auto"
             style={{
               fontWeight: 400,
               fontSize: "56px",
               lineHeight: "100%",
-              letterSpacing: "-3%",
+              letterSpacing: "-0.03em",
             }}
           >
-            {`We transform students from passive consumers of technology into active creators by connecting the subjects they learn today with the innovations of tomorrow.`
-              .split("")
-              .map((char, index) => (
+            <div className="mb-2">
+              {`We transform students from`.split("").map((char, index) => (
                 <motion.span
-                  key={`dark-section-${index}`}
+                  key={`dark-section-line1-${index}`}
                   variants={charVariants}
                   className="inline-block"
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
-          </motion.h2>
+            </div>
+            <div className="mb-2">
+              {`passive consumers of technology`
+                .split("")
+                .map((char, index) => (
+                  <motion.span
+                    key={`dark-section-line2-${index}`}
+                    variants={charVariants}
+                    className="inline-block"
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+            </div>
+            <div className="mb-2">
+              {`into active creators by connecting`
+                .split("")
+                .map((char, index) => (
+                  <motion.span
+                    key={`dark-section-line3-${index}`}
+                    variants={charVariants}
+                    className="inline-block"
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+            </div>
+            <div className="mb-2">
+              {`the subjects they learn today with`
+                .split("")
+                .map((char, index) => (
+                  <motion.span
+                    key={`dark-section-line4-${index}`}
+                    variants={charVariants}
+                    className="inline-block"
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+            </div>
+            <div>
+              {`the innovations of tomorrow.`.split("").map((char, index) => (
+                <motion.span
+                  key={`dark-section-line5-${index}`}
+                  variants={charVariants}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -668,7 +706,7 @@ const Index = () => {
                   className="w-full"
                 >
                   <Card
-                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full"
+                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full border-0"
                     style={{ backgroundColor: "#37e2b4" }}
                   >
                     <motion.div
@@ -736,7 +774,7 @@ const Index = () => {
                   className="w-full"
                 >
                   <Card
-                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full"
+                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full border-0"
                     style={{ backgroundColor: "#7371FC" }}
                   >
                     <motion.div
@@ -803,8 +841,8 @@ const Index = () => {
                   className="w-full"
                 >
                   <Card
-                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full"
-                    style={{ backgroundColor: "#ffbf1f", color: "#1c1c1c" }}
+                    className="p-0 h-[400px] md:h-[476px] rounded-[10px] overflow-hidden w-full border-0"
+                    style={{ backgroundColor: "#ffbf1f" }}
                   >
                     <motion.div
                       className="text-black h-full flex flex-col px-4 md:px-5 pt-4 md:pt-5 pb-6 md:pb-8"
@@ -859,219 +897,224 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Example Section Header */}
-      <section className="py-5 px-5 bg-[#FAF4EC]">
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={itemVariants}
-          className="text-3xl md:text-4xl font-semibold text-black pl-20 pb-10 md:px-10 pt-40"
-          style={{
-            fontWeight: 400,
-            fontSize: "56px",
-            lineHeight: "100%",
-            letterSpacing: "-3%",
-          }}
-        >
-          Let us show you an example
-        </motion.h2>
-      </section>
-
-      {/* Stacking Sections Container */}
-      <div className="relative" style={{ height: "300vh" }}>
-        {/* School Lesson Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="sticky top-0 py-5 px-5 bg-transparent h-screen flex items-center"
-          style={{ zIndex: 1 }}
-        >
-          <div className="max-w-screen mx-auto w-full">
-            <motion.div
-              variants={slideUpVariants}
-              className="bg-[#e6ded1] px-12 md:px-16 py-16 md:py-8 relative duration-500 h-screen max-w-full"
-              style={{ borderRadius: "24px" }}
+      {/* Example Section with Stacking Cards */}
+      <div className="relative bg-[#FAF4EC]">
+        <div style={{ height: "400vh" }}>
+          {/* Example Section Header - Sticky */}
+          <div className="sticky top-0 py-3 px-5 bg-[#FAF4EC] z-50">
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-semibold text-black pl-20 pb-3 md:px-10 pt-8"
+              style={{
+                fontWeight: 400,
+                fontSize: "56px",
+                lineHeight: "100%",
+                letterSpacing: "-3%",
+              }}
             >
-              <div
-                className=" bg-white text-black px-8 py-3 rounded-md  mb-12 inline-block items-center justify-cente"
-                style={{
-                  fontFamily: "Inter",
-                  fontWeight: 500,
-                  fontSize: "32px",
-                  lineHeight: "121%",
-                  letterSpacing: "-3%",
-                }}
-              >
-                The School Lesson
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-16 items-start py-20">
-                <h3
-                  className="text-4xl md:text-5xl font-normal leading-tight text-black"
-                  style={{
-                    fontWeight: 500,
-                    fontSize: "72px",
-                    lineHeight: "121%",
-                    letterSpacing: "-3%",
-                  }}
+              Let us show you an example
+            </motion.h2>
+          </div>
+
+          {/* Stacking Sections Container */}
+          <div className="relative">
+            {/* School Lesson Section */}
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={containerVariants}
+              className="sticky px-5 bg-transparent flex items-center"
+              style={{ top: "120px", zIndex: 1, height: "calc(120vh - 120px)" }}
+            >
+              <div className="max-w-screen mx-auto w-full">
+                <motion.div
+                  variants={slideUpVariants}
+                  className="bg-[#e6ded1] px-12 md:px-16 py-8 md:py-6 relative duration-500 max-w-full"
+                  style={{ borderRadius: "24px", height: "100%" }}
                 >
-                  Differentiation is used to find
-                  <br />
-                  the minimum and
-                  <br />
-                  maximum of a curve
-                </h3>
-                <div className="flex justify-center md:justify-end items-start pt-4">
-                  <div className="flex flex-col items-end gap-1">
-                    <svg
-                      viewBox="0 0 240 180"
-                      className="w-56 h-40 md:w-64 md:h-44"
-                    >
-                      <path
-                        d="M 30 160 Q 120 40, 210 160"
-                        fill="none"
-                        stroke="#2c2c2c"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="20"
-                        y1="160"
-                        x2="220"
-                        y2="160"
-                        stroke="#2c2c2c"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    <span className="text-sm md:text-base text-black italic font-light">
-                      dy/dx=0
-                    </span>
+                  <div
+                    className=" bg-white text-black px-8 py-3 rounded-md  mb-12 inline-block items-center justify-cente"
+                    style={{
+                      fontFamily: "Inter",
+                      fontWeight: 500,
+                      fontSize: "32px",
+                      lineHeight: "121%",
+                      letterSpacing: "-3%",
+                    }}
+                  >
+                    The School Lesson
                   </div>
-                </div>
+                  <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-16 items-start py-20">
+                    <h3
+                      className="text-4xl md:text-5xl font-normal leading-tight text-black"
+                      style={{
+                        fontWeight: 500,
+                        fontSize: "72px",
+                        lineHeight: "121%",
+                        letterSpacing: "-3%",
+                      }}
+                    >
+                      Differentiation is used to find
+                      <br />
+                      the minimum and
+                      <br />
+                      maximum of a curve
+                    </h3>
+                    <div className="flex justify-center md:justify-end items-start pt-4">
+                      <div className="flex flex-col items-end gap-1">
+                        <svg
+                          viewBox="0 0 240 180"
+                          className="w-56 h-40 md:w-64 md:h-44"
+                        >
+                          <path
+                            d="M 30 160 Q 120 40, 210 160"
+                            fill="none"
+                            stroke="#2c2c2c"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                          />
+                          <line
+                            x1="20"
+                            y1="160"
+                            x2="220"
+                            y2="160"
+                            stroke="#2c2c2c"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                        <span className="text-sm md:text-base text-black italic font-light">
+                          dy/dx=0
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </div>
-        </motion.section>
+            </motion.section>
 
-        {/* MUSTARD Upgrade Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="sticky top-0 py-5 px-5 bg-transparent h-screen flex items-center"
-          style={{ zIndex: 2 }}
-        >
-          <div className="max-w-screen mx-auto w-full">
-            <motion.div
-              variants={slideUpVariants}
-              className="bg-[#ffc700] px-12 md:px-16 py-16 md:py-8 relative  duration-500 h-screen max-w-full"
-              style={{ borderRadius: "24px" }}
+            {/* MUSTARD Upgrade Section */}
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={containerVariants}
+              className="sticky px-5 bg-transparent flex items-center"
+              style={{ top: "120px", zIndex: 2, height: "calc(100vh - 120px)" }}
             >
-              <div
-                className=" bg-white text-black px-8 py-3 rounded-md  mb-12 inline-block items-center justify-center"
-                style={{
-                  fontFamily: "Inter",
-                  fontWeight: 500,
-                  fontSize: "32px",
-                  lineHeight: "121%",
-                  letterSpacing: "-3%",
-                }}
-              >
-                MUSTARD Upgrade
-              </div>
-              <div className="absolute top-8 right-8 md:top-36 md:right-36">
-                <div
-                  className="bg-[#7371FC] text-black px-8 py-6  transform rotate-6"
-                  style={{
-                    borderRadius: "16px",
-                    fontWeight: 400,
-                    fontSize: "36px",
-                    lineHeight: "100%",
-                    letterSpacing: "-3%",
-                    textAlign: "center",
-                  }}
+              <div className="max-w-screen mx-auto w-full">
+                <motion.div
+                  variants={slideUpVariants}
+                  className="bg-[#ffc700] px-12 md:px-16 py-8 md:py-6 relative duration-500 max-w-full"
+                  style={{ borderRadius: "24px", height: "100%" }}
                 >
-                  This is how neural networks learn!
-                </div>
+                  <div
+                    className=" bg-white text-black px-8 py-3 rounded-md  mb-12 inline-block items-center justify-center"
+                    style={{
+                      fontFamily: "Inter",
+                      fontWeight: 500,
+                      fontSize: "32px",
+                      lineHeight: "121%",
+                      letterSpacing: "-3%",
+                    }}
+                  >
+                    MUSTARD Upgrade
+                  </div>
+                  <div className="absolute top-8 right-8 md:top-36 md:right-36">
+                    <div
+                      className="bg-[#7371FC] text-black px-8 py-6  transform rotate-6"
+                      style={{
+                        borderRadius: "16px",
+                        fontWeight: 400,
+                        fontSize: "36px",
+                        lineHeight: "100%",
+                        letterSpacing: "-3%",
+                        textAlign: "center",
+                      }}
+                    >
+                      This is how neural networks learn!
+                    </div>
+                  </div>
+                  <div className=" py-20">
+                    <h3
+                      className="text-4xl md:text-5xl font-normal leading-tight text-black"
+                      style={{
+                        fontWeight: 500,
+                        fontSize: "72px",
+                        lineHeight: "121%",
+                        letterSpacing: "-3%",
+                      }}
+                    >
+                      AI detects which way error
+                      <br />
+                      goes down and moves in
+                      <br />
+                      that direction.
+                    </h3>
+                    <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 text-7xl md:text-8xl font-bold text-white/20">
+                      02
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-              <div className=" py-20">
-                <h3
-                  className="text-4xl md:text-5xl font-normal leading-tight text-black"
-                  style={{
-                    fontWeight: 500,
-                    fontSize: "72px",
-                    lineHeight: "121%",
-                    letterSpacing: "-3%",
-                  }}
-                >
-                  AI detects which way error
-                  <br />
-                  goes down and moves in
-                  <br />
-                  that direction.
-                </h3>
-                <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 text-7xl md:text-8xl font-bold text-white/20">
-                  02
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section>
+            </motion.section>
 
-        {/* The Build Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="sticky top-0 py-5 px-5 bg-transparent h-screen flex items-center"
-          style={{ zIndex: 3 }}
-        >
-          <div className="max-w-screen mx-auto w-full">
-            <motion.div
-              variants={slideUpVariants}
-              className="bg-[#2bdba0] px-12 md:px-16 py-16 md:py-8 relative duration-500 h-screen max-w-full"
-              style={{ borderRadius: "24px" }}
+            {/* The Build Section */}
+            <motion.section
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={containerVariants}
+              className="sticky px-5 bg-transparent flex items-center "
+              style={{ top: "120px", zIndex: 3, height: "calc(100vh - 120px)" }}
             >
-              <div
-                className="inline-block bg-white text-black px-8 py-3 rounded-md shadow-sm mb-12 items-center justify-center"
-                style={{
-                  fontFamily: "Inter",
-                  fontWeight: 500,
-                  fontSize: "32px",
-                  lineHeight: "121%",
-                  letterSpacing: "-3%",
-                }}
-              >
-                The Build
-              </div>
-              <div className="py-20">
-                <h3
-                  className="text-4xl md:text-5xl font-normal leading-tight text-black"
-                  style={{
-                    fontWeight: 500,
-                    fontSize: "72px",
-                    lineHeight: "121%",
-                    letterSpacing: "-3%",
-                  }}
+              <div className="max-w-screen mx-auto w-full">
+                <motion.div
+                  variants={slideUpVariants}
+                  className="bg-[#2bdba0] px-12 md:px-16 py-8 md:py-6 relative duration-500 max-w-full"
+                  style={{ borderRadius: "24px", height: "100%" }}
                 >
-                  A self-driving bot that uses
-                  <br />
-                  calculus to mathematically
-                  <br />
-                  minimize steering error.
-                </h3>
-                <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 text-7xl md:text-8xl font-bold text-white/20">
-                  03
-                </div>
+                  <div
+                    className="inline-block bg-white text-black px-8 py-3 rounded-md shadow-sm mb-12 items-center justify-center"
+                    style={{
+                      fontFamily: "Inter",
+                      fontWeight: 500,
+                      fontSize: "32px",
+                      lineHeight: "121%",
+                      letterSpacing: "-3%",
+                    }}
+                  >
+                    The Build
+                  </div>
+                  <div className="py-20">
+                    <h3
+                      className="text-4xl md:text-5xl font-normal leading-tight text-black"
+                      style={{
+                        fontWeight: 500,
+                        fontSize: "72px",
+                        lineHeight: "121%",
+                        letterSpacing: "-3%",
+                      }}
+                    >
+                      A self-driving bot that uses
+                      <br />
+                      calculus to mathematically
+                      <br />
+                      minimize steering error.
+                    </h3>
+                    <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 text-7xl md:text-8xl font-bold text-white/20">
+                      03
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
+            </motion.section>
           </div>
-        </motion.section>
+        </div>
       </div>
 
       {/* Mentored by Masters */}
@@ -1100,7 +1143,7 @@ const Index = () => {
 
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center px-14"
           >
             {/* PhD Scholars card */}
             <motion.div>

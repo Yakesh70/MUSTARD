@@ -687,7 +687,7 @@ const Index = () => {
             className="sticky top-0 flex items-center justify-center px-5 md:px-0"
             style={{ minHeight: "100vh" }}
           >
-            <div className="max-w-6xl mx-auto w-full">
+            <div className="max-w-auto mx-auto w-full px-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {/* Green Card - Third to enter */}
                 <motion.div
@@ -710,7 +710,7 @@ const Index = () => {
                     style={{ backgroundColor: "#37e2b4" }}
                   >
                     <motion.div
-                      className="text-black h-full flex flex-col px-4 md:px-5 pt-4 md:pt-5 pb-6 md:pb-8"
+                      className="text-black h-full flex flex-col px-4 md:px-4 pt-4 md:pt-5 pb-6 md:pb-8"
                       whileHover={{ y: -8 }}
                       transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
                     >
@@ -718,7 +718,7 @@ const Index = () => {
                         className="text-3xl md:text-4xl font-normal leading-tight mb-6 md:mb-10"
                         style={{
                           fontWeight: 400,
-                          fontSize: "clamp(32px, 5vw, 48px)",
+                          fontSize: "44px",
                           lineHeight: "100%",
                           letterSpacing: "-3%",
                         }}
@@ -729,7 +729,7 @@ const Index = () => {
                       </h3>
                       <div className="mt-auto">
                         <div
-                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-5 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
+                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-4 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
                           style={{
                             clipPath:
                               "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
@@ -741,14 +741,20 @@ const Index = () => {
                             style={{
                               fontFamily: "Inter",
                               fontWeight: 400,
-                              fontSize: "clamp(16px, 2vw, 20px)",
+                              fontSize: "20px",
                               lineHeight: "120%",
                               letterSpacing: "-3%",
                               textAlign: "right",
                             }}
                           >
-                            We don&apos;t force a foreign curriculum on
-                            students. We show how existing lessons evolve into
+                            We don&apos;t force a foreign 
+                            <br />
+                            curriculum on
+                            students. 
+                            <br />
+                            We show how existing lessons 
+                            <br />
+                            evolve into
                             advanced tech.
                           </p>
                         </div>
@@ -778,7 +784,7 @@ const Index = () => {
                     style={{ backgroundColor: "#7371FC" }}
                   >
                     <motion.div
-                      className="text-black h-full flex flex-col px-4 md:px-5 pt-4 md:pt-5 pb-6 md:pb-8"
+                      className="text-black h-full flex flex-col px-4 md:px-4 pt-4 md:pt-5 pb-6 md:pb-8"
                       whileHover={{ y: -8 }}
                       transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
                     >
@@ -786,7 +792,7 @@ const Index = () => {
                         className="text-3xl md:text-4xl font-normal leading-tight mb-6 md:mb-10"
                         style={{
                           fontWeight: 400,
-                          fontSize: "clamp(32px, 5vw, 48px)",
+                          fontSize: "44px",
                           lineHeight: "100%",
                           letterSpacing: "-3%",
                         }}
@@ -797,7 +803,7 @@ const Index = () => {
                       </h3>
                       <div className="mt-auto">
                         <div
-                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-5 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
+                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-4 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
                           style={{
                             clipPath:
                               "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
@@ -809,14 +815,18 @@ const Index = () => {
                             style={{
                               fontFamily: "Inter",
                               fontWeight: 400,
-                              fontSize: "clamp(16px, 2vw, 20px)",
+                              fontSize: "20px",
                               lineHeight: "120%",
                               letterSpacing: "-3%",
                               textAlign: "right",
                             }}
                           >
-                            We don&apos;t teach &quot;Robotics&quot;; we teach
-                            how physics and code merge to create motion.
+                            We don&apos;t teach &quot;Robotics&quot;; we 
+                            <br />
+                            teach
+                            how physics and code 
+                            <br />
+                            merge to create motion.
                           </p>
                         </div>
                       </div>
@@ -845,7 +855,7 @@ const Index = () => {
                     style={{ backgroundColor: "#ffbf1f" }}
                   >
                     <motion.div
-                      className="text-black h-full flex flex-col px-4 md:px-5 pt-4 md:pt-5 pb-6 md:pb-8"
+                      className="text-black h-full flex flex-col px-4 md:px-4 pt-4 md:pt-5 pb-6 md:pb-8"
                       whileHover={{ y: -8 }}
                       transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
                     >
@@ -853,7 +863,7 @@ const Index = () => {
                         className="text-3xl md:text-4xl font-normal leading-tight mb-6 md:mb-10"
                         style={{
                           fontWeight: 400,
-                          fontSize: "clamp(32px, 5vw, 48px)",
+                          fontSize: "44px",
                           lineHeight: "100%",
                           letterSpacing: "-3%",
                         }}
@@ -864,7 +874,7 @@ const Index = () => {
                       </h3>
                       <div className="mt-auto">
                         <div
-                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-5 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
+                          className="bg-[#FAF4EC] rounded-xl px-4 md:px-4 py-4 md:py-5 h-[180px] md:h-[216px] flex flex-col items-end justify-end"
                           style={{
                             clipPath:
                               "polygon(0 30%, 100% 0%, 100% 100%, 0% 100%)",
@@ -876,14 +886,17 @@ const Index = () => {
                             style={{
                               fontFamily: "Inter",
                               fontWeight: 400,
-                              fontSize: "clamp(16px, 2vw, 20px)",
+                              fontSize: "20px",
                               lineHeight: "120%",
                               letterSpacing: "-3%",
                               textAlign: "right",
                             }}
                           >
-                            We shift the focus from &quot;How do I use this
-                            device?&quot; to &quot;How do I build this
+                            We shift the focus from &quot;How do 
+                            <br />
+                            I use this
+                            device?&quot; to &quot;How do I <br />
+                            build this
                             device?&quot;
                           </p>
                         </div>

@@ -682,7 +682,7 @@ const Index = () => {
           paddingBottom: "200px",
         }}
       >
-        <div className="h-[300vh] md:h-[400vh]">
+        <div className="h-[300vh] md:h-[280vh]">
           <div
             className="sticky top-0 flex items-center justify-center px-5 md:px-0"
             style={{ minHeight: "100vh" }}
@@ -941,9 +941,9 @@ const Index = () => {
               viewport={{ once: true, margin: "-100px" }}
               variants={containerVariants}
               className="sticky px-5 bg-transparent flex items-center"
-              style={{ top: "120px", zIndex: 1, height: "calc(120vh - 120px)" }}
+              style={{ top: "120px", zIndex: 1, height: "calc(100vh - 120px)" }}
             >
-              <div className="max-w-screen mx-auto w-full">
+              <div className="max-w-screen mx-auto w-full ">
                 <motion.div
                   variants={slideUpVariants}
                   className="bg-[#e6ded1] px-12 md:px-16 py-8 md:py-6 relative duration-500 max-w-full"
@@ -961,9 +961,9 @@ const Index = () => {
                   >
                     The School Lesson
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-16 items-start py-20">
+                  <div className=" items-start">
                     <h3
-                      className="text-4xl md:text-5xl font-normal leading-tight text-black"
+                      className="text-4xl md:text-5xl font-normal leading-tight text-black mb-14"
                       style={{
                         fontWeight: 500,
                         fontSize: "72px",
@@ -977,34 +977,33 @@ const Index = () => {
                       <br />
                       maximum of a curve
                     </h3>
-                    <div className="flex justify-center md:justify-end items-start pt-4">
-                      <div className="flex flex-col items-end gap-1">
-                        <svg
-                          viewBox="0 0 240 180"
-                          className="w-56 h-40 md:w-64 md:h-44"
-                        >
-                          <path
-                            d="M 30 160 Q 120 40, 210 160"
-                            fill="none"
-                            stroke="#2c2c2c"
-                            strokeWidth="1.2"
-                            strokeLinecap="round"
-                          />
-                          <line
-                            x1="20"
-                            y1="160"
-                            x2="220"
-                            y2="160"
-                            stroke="#2c2c2c"
-                            strokeWidth="1.2"
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                        <span className="text-sm md:text-base text-black italic font-light">
-                          dy/dx=0
-                        </span>
-                      </div>
+                    <div className="flex flex-col items-end gap-1 absolute top-8 right-8 md:top-64 md:right-36">
+                      <svg
+                        viewBox="0 0 240 180"
+                        className="w-56 h-40 md:w-64 md:h-44"
+                      >
+                        <path
+                          d="M 30 160 Q 120 40, 210 160"
+                          fill="none"
+                          stroke="#2c2c2c"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                        />
+                        <line
+                          x1="20"
+                          y1="160"
+                          x2="220"
+                          y2="160"
+                          stroke="#2c2c2c"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <span className="text-sm md:text-base text-black italic font-light">
+                        dy/dx=0
+                      </span>
                     </div>
+                  
                   </div>
                 </motion.div>
               </div>
@@ -1019,7 +1018,7 @@ const Index = () => {
               className="sticky px-5 bg-transparent flex items-center"
               style={{ top: "120px", zIndex: 2, height: "calc(100vh - 120px)" }}
             >
-              <div className="max-w-screen mx-auto w-full">
+              <div className="max-w-screen mx-auto w-full mt-20">
                 <motion.div
                   variants={slideUpVariants}
                   className="bg-[#ffc700] px-12 md:px-16 py-8 md:py-6 relative duration-500 max-w-full"
@@ -1085,7 +1084,7 @@ const Index = () => {
               className="sticky px-5 bg-transparent flex items-center "
               style={{ top: "120px", zIndex: 3, height: "calc(100vh - 120px)" }}
             >
-              <div className="max-w-screen mx-auto w-full">
+              <div className="max-w-screen mx-auto w-full mt-20">
                 <motion.div
                   variants={slideUpVariants}
                   className="bg-[#2bdba0] px-12 md:px-16 py-8 md:py-6 relative duration-500 max-w-full"
